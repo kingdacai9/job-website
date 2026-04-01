@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job 个人说明书 | 纪汪洋</title>
+  <meta name="description" content="璞啡特贸易 & 智盛AI 联合创始人 | 战略运营专家 | 亿级私域生态构建者">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary: #667eea;
+      --secondary: #764ba2;
+      --accent: #f093fb;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 40px 20px 30px;
+      color: white;
+      animation: fadeInDown 0.8s ease-out;
+    }
+    
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      font-weight: 700;
+    }
+    
+    .header .hero-image {
+      max-width: 500px;
+      width: 90%;
+      margin: 0 auto 20px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+    
+    .header .hero-image img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+      border-radius: 12px;
+    }
+    
+    .header .subtitle {
+      font-size: 1.5rem;
+      opacity: 0.95;
+      margin-top: 10px;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+    
+    /* Document Container */
+    .doc-wrapper {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+      overflow: hidden;
+      margin: 20px 0 40px;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+    
+    /* Browser Chrome */
+    .browser-header {
+      background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
+      padding: 12px 20px;
+      border-bottom: 1px solid #d0d0d0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .traffic-lights {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .light {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.1);
+    }
+    
+    .light.red { background: #ff5f57; }
+    .light.yellow { background: #febc2e; }
+    .light.green { background: #28c840; }
+    
+    .browser-title {
+      flex: 1;
+      text-align: center;
+      color: #555;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .browser-title::before {
+      content: "📄";
+    }
+    
+    /* Iframe Container */
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 280px);
+      min-height: 800px;
+      background: #fafafa;
+    }
+    
+    .feishu-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    
+    /* Loading State */
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .loading-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #e0e0e0;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .loading-text {
+      color: #666;
+      font-size: 15px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: white;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+    
+    .footer p {
+      opacity: 0.85;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+    
+    .footer .links {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .footer a {
+      color: white;
+      opacity: 0.9;
+      text-decoration: none;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .footer a:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+    }
+    
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .header .subtitle {
+        font-size: 1rem;
+      }
+      
+      .iframe-container {
+        height: calc(100vh - 240px);
+        min-height: 600px;
+      }
+      
+      .browser-header {
+        padding: 10px 15px;
+      }
+      
+      .browser-title {
+        font-size: 12px;
+      }
+    }
+    
+    /* Fullscreen Button */
+    .fullscreen-btn {
+      background: rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.1);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      color: #555;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .fullscreen-btn:hover {
+      background: rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="hero-image">
+        <img src="images/hero-illustration.png" alt="Workspace Illustration" />
+      </div>
+      <h1>👋 Hi, I'm Job</h1>
+      <p class="subtitle">很高兴认识你</p>
+    </header>
+    
+    <!-- Document -->
+    <div class="doc-wrapper">
+      <div class="browser-header">
+        <div class="traffic-lights">
+          <span class="light red"></span>
+          <span class="light yellow"></span>
+          <span class="light green"></span>
+        </div>
+        <div class="browser-title">Job个人说明书 - 飞书文档</div>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">
+          ⛶ 全屏
+        </button>
+      </div>
+      
+      <div class="iframe-container" id="iframeContainer">
+        <div class="loading-overlay" id="loadingOverlay">
+          <div class="spinner"></div>
+          <p class="loading-text">正在加载飞书文档...</p>
+        </div>
+        
+        <iframe 
+          src="https://rqgsrgqhq73.feishu.cn/docx/BN4Vd97DfovvtKxUzF8cuCMSn4e?from=from_copylink" 
+          class="feishu-iframe"
+          id="feishuFrame"
+          allowfullscreen
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads"
+        ></iframe>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2024 Job (纪汪洋) | 璞啡特贸易 & 智盛AI 联合创始人</p>
+      <p>深耕贸易、互联网行业10年 | 星星之火，可以燎原</p>
+      <div class="links">
+        <a href="https://rqgsrgqhq73.feishu.cn/docx/BN4Vd97DfovvtKxUzF8cuCMSn4e" target="_blank">📄 飞书原文档</a>
+        <a href="mailto:job@example.com">📧 联系我</a>
+        <a href="#" onclick="alert('微信：请通过飞书文档联系')">💬 微信</a>
+      </div>
+    </footer>
+  </div>
+  
+  <script>
+    // 处理 iframe 加载
+    const iframe = document.getElementById('feishuFrame');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    
+    iframe.addEventListener('load', function() {
+      loadingOverlay.classList.add('hidden');
+      console.log('✅ 飞书文档加载完成');
+    });
+    
+    // 超时处理（10秒后隐藏加载）
+    setTimeout(() => {
+      loadingOverlay.classList.add('hidden');
+    }, 10000);
+    
+    // 全屏功能
+    function toggleFullscreen() {
+      const container = document.getElementById('iframeContainer');
+      if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => {
+          console.log('全屏失败:', err);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+    
+    // 响应式 iframe 高度
+    function adjustIframeHeight() {
+      const header = document.querySelector('.header');
+      const footer = document.querySelector('.footer');
+      const browserHeader = document.querySelector('.browser-header');
+      const container = document.querySelector('.iframe-container');
+      
+      const availableHeight = window.innerHeight 
+        - header.offsetHeight 
+        - footer.offsetHeight 
+        - browserHeader.offsetHeight 
+        - 100; // padding/margin
+      
+      container.style.height = Math.max(availableHeight, 600) + 'px';
+    }
+    
+    window.addEventListener('resize', adjustIframeHeight);
+    adjustIframeHeight();
+  </script>
+</body>
+</html>
